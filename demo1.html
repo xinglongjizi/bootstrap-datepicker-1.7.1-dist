@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- jquery -->
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<!-- bootstrap -->
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- datepicker -->
+	<script src="js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+	<!-- 中文包 -->
+	<script src="locales/bootstrap-datepicker.zh-CN.min.js"></script>
+</head>
+<body>
+
+
+	<input type="text" class="my-date"> <span class="glyphicon glyphicon-th"></span>
+
+
+	<!-- 带icon的block的input，点击icon也会触发datepicker -->
+	<div class="input-group date my-date ">
+	    <input type="text" class="form-control">
+	    <div class="input-group-addon">
+	        <span class="glyphicon glyphicon-th"></span>
+	    </div>
+	</div>
+
+	<!-- 自己写，将icon放进input中，点击也可触发datepicker -->
+	<div class="box">
+		<input type="text" class="yc-date" placeholder="input date..." readonly />
+		<span class="glyphicon glyphicon-th"></span>
+	</div>
+	<style>
+		.box{
+			margin: 20px auto;
+			width: 200px;
+			height: 24px; /*子元素都绝对定位了，就不能被撑开，所以设置个高度*/
+			position: relative;
+		}
+		.yc-date{
+			position: absolute;
+			z-index: 999;
+			height: 100%;
+			width: 100%;
+			background: transparent;
+			cursor: pointer;
+			border: 1px solid #e2e2e7;
+			border-radius: 5px;
+		}
+		.box span{
+			position: absolute;
+			z-index: 998;
+			top: 50%;
+			right: 4px;
+			transform: translateY(-50%);
+			cursor: pointer;
+		}
+	</style>
+
+
+
+<script>
+	$('.my-date, .yc-date').datepicker({
+		//配置
+		autoclose: true,
+		clearBtn: true,
+		format: 'yyyy-mm-dd',
+		language: 'zh-CN'
+	});
+
+</script>
+</body>
+</html>
